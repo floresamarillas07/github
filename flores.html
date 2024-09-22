@@ -11,10 +11,21 @@
 
 <body>
     <!-- Añadimos el audio que se reproduce automáticamente y se reinicia -->
-    <audio id="audioPlayer" autoplay loop>
+    <audio id="audioPlayer" autoplay loop muted>
         <source src="img/Floricienta.mp3" type="audio/mp3">
         Tu navegador no soporta la reproducción de audio.
     </audio>
+
+    <script>
+        window.addEventListener('load', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+            if (localStorage.getItem('playAudio') === 'true') {
+                audioPlayer.muted = false; // Desmutea el audio
+                audioPlayer.play(); // Reproduce el audio
+                localStorage.removeItem('playAudio'); // Limpia el estado
+            }
+        });
+    </script>
     <div class="clouds"></div>
     <section>
         <h1 class="titulo">&#9829 Eres la mujercita que más amo en este mundo &#9829</h1>
@@ -128,19 +139,6 @@
             <div class="planta"></div>
         </div>
     </section>
-
-    <script>
-        window.addEventListener('load', function () {
-            const audioPlayer = document.getElementById('audioPlayer');
-            audioPlayer.play(); // Forzar la reproducción automática
-
-            // Reiniciar el audio al terminar
-            audioPlayer.addEventListener('ended', function () {
-                audioPlayer.currentTime = 0; // Reiniciar el audio
-                audioPlayer.play(); // Reproducir de nuevo
-            });
-        });
-    </script>
 
     <script src="script.js"></script>
 </body>
