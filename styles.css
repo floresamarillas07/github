@@ -1,0 +1,528 @@
+/* Animación de entrada para las flores */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100vh);
+        /* Empieza fuera de la pantalla (abajo) */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Se desliza a su posición original */
+        opacity: 1;
+    }
+}
+
+/* Animación de entrada para los textos */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    min-height: 100vh;
+    /* Cambiado de height a min-height */
+    background: linear-gradient(to bottom, #92B0DE 30%, #b8d8f5 80%);
+    font-family: 'Pacifico', cursive;
+    position: relative;
+}
+
+.clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    /* Cambiado para que ocupe al menos el alto del contenido */
+    background-image: url('img/fondo3.png');
+    background-size: cover;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titulo {
+    font-size: 3em;
+    z-index: 5;
+    color: #34221E;
+    text-shadow: 0 0 15px rgba(255, 217, 0, 0.8),
+        /* Brillo exterior */
+        0 0 25px rgba(255, 187, 0, 0.5),
+        0 0 35px rgba(255, 174, 0, 0.3);
+    border: 8px double #ffd000;
+    /* Borde doble */
+    padding: 25px 45px 45px 45px;
+    border-radius: 15px;
+    /* Bordes redondeados */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fondo ligeramente visible */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    /* Sombra en el contorno */
+    animation: fadeInSlide 2s ease-out;
+    /* Animación de entrada */
+}
+
+.contenedor-general {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.flower-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* Alinea el tallo y la flor verticalmente */
+    width: 20%;
+    animation: slideUp 2s ease-out;
+    /* Aplica la animación de deslizar hacia arriba */
+}
+
+.flower {
+    position: relative;
+    width: 60px;
+    height: 200px;
+    z-index: 6;
+    margin-top: 40px;
+}
+
+.petal {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background: radial-gradient(circle, #ffeb3b 30%, #fbc02d 90%);
+    /* Degradado radial */
+    border-radius: 50% 50% 0 0;
+    transform-origin: 50% 100%;
+    /* Los pétalos se anclan en la parte inferior */
+}
+
+.petal:nth-child(1) {
+    transform: rotate(0deg) translate(0, -50px);
+}
+
+.petal:nth-child(2) {
+    transform: rotate(30deg) translate(0, -50px);
+}
+
+.petal:nth-child(3) {
+    transform: rotate(60deg) translate(0, -50px);
+}
+
+.petal:nth-child(4) {
+    transform: rotate(90deg) translate(0, -50px);
+}
+
+.petal:nth-child(5) {
+    transform: rotate(120deg) translate(0, -50px);
+}
+
+.petal:nth-child(6) {
+    transform: rotate(150deg) translate(0, -50px);
+}
+
+.petal:nth-child(7) {
+    transform: rotate(180deg) translate(0, -50px);
+}
+
+.petal:nth-child(8) {
+    transform: rotate(210deg) translate(0, -50px);
+}
+
+.petal:nth-child(9) {
+    transform: rotate(240deg) translate(0, -50px);
+}
+
+.petal:nth-child(10) {
+    transform: rotate(270deg) translate(0, -50px);
+}
+
+.petal:nth-child(11) {
+    transform: rotate(300deg) translate(0, -50px);
+}
+
+.petal:nth-child(12) {
+    transform: rotate(330deg) translate(0, -50px);
+}
+
+.center {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #34221E 30%, #EFAC09 80%);
+    /* Degradado radial */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.name {
+    font-family: 'Pacifico', cursive;
+    color: white;
+    font-size: 35px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 0, 0.8);
+}
+
+/* Estilos del tallo */
+.stem {
+    width: 10px;
+    height: 300px;
+    background-color: green;
+    position: relative;
+    margin-top: -20px;
+    /* Conecta el tallo con la flor */
+    z-index: 5;
+}
+
+/* Estilos de la hoja */
+.leaf {
+    width: 100px;
+    height: 80px;
+    background-color: green;
+    position: absolute;
+    top: 120px;
+    left: -110px;
+    border-radius: 0% 100% 0% 100%;
+    transform: rotate(-30deg);
+}
+
+/* Animación para el césped */
+@keyframes aparecerCesped {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Mover hacia abajo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* Volver a la posición original */
+    }
+}
+
+/* Animación para las plantas */
+@keyframes aparecerPlanta {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Mover hacia abajo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* Volver a la posición original */
+    }
+}
+
+.cesped {
+    width: 100%;
+    /* Ajusta según sea necesario */
+    background: linear-gradient(to top, #4CAF50 25%, #66BB6A 75%);
+    /* Degradado para simular el césped */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 10;
+    animation: aparecerCesped 1s ease-out;
+    /* Animación del césped */
+}
+
+.cesped::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    /* Tamaño de las líneas del césped */
+    background: repeating-linear-gradient(-45deg,
+            #4CAF50,
+            #4CAF50 5px,
+            #388E3C 5px,
+            #388E3C 10px);
+    animation: aparecerCesped 1s ease-out;
+    /* Animación del césped */
+}
+
+/* Estilos para las plantas */
+.planta {
+    width: 20px;
+    /* Ancho de las plantas */
+    height: 120px;
+    /* Altura de las plantas */
+    background-color: #3E8E41;
+    /* Color de las plantas */
+    border-radius: 100%;
+    position: absolute;
+    /* Posición absoluta para que estén sobre el césped */
+    bottom: 40px;
+    /* Ajusta esta propiedad para elevar las plantas sobre el césped */
+    z-index: 1;
+    animation: aparecerPlanta 1s ease-out 2.5s forwards;
+    /* Animación de las plantas con retraso de 2s */
+    opacity: 0;
+}
+
+/* Distribuir plantas en diferentes posiciones */
+.planta:nth-child(1) {
+    left: 5%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(2) {
+    left: 15%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(3) {
+    left: 25%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(4) {
+    left: 35%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(5) {
+    left: 45%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(6) {
+    left: 55%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(7) {
+    left: 65%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(8) {
+    left: 75%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(9) {
+    left: 85%;
+    /* Ajusta la posición horizontal */
+}
+
+.planta:nth-child(10) {
+    left: 95%;
+    /* Ajusta la posición horizontal */
+}
+
+/* Agregar hojas a las plantas */
+.planta::before,
+.planta::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    /* Ancho de las plantas */
+    height: 120px;
+    /* Altura de las plantas */
+    background-color: #4CAF50;
+    /* Color de las hojas */
+}
+
+.planta::before {
+    left: -30px;
+    /* Ajusta la posición de la hoja izquierda */
+    border-radius: 0% 100% 0% 100%;
+    transform: rotate(-15deg);
+    /* Rota el objeto 45 grados */
+}
+
+.planta::after {
+    right: -30px;
+    /* Ajusta la posición de la hoja derecha */
+    border-radius: 100% 0% 100% 0%;
+    transform: rotate(15deg);
+    /* Rota el objeto 45 grados */
+}
+
+/* Añadir media queries para el diseño responsivo */
+@media (max-width: 1200px) {
+    .contenedor-general {
+        flex-direction: row;
+        /* Asegura que se mantenga en fila */
+        flex-wrap: wrap;
+        /* Permite que los elementos se envuelvan en pantallas más pequeñas */
+        justify-content: center;
+        /* Centra el contenido */
+    }
+
+    .flower-container {
+        width: 30%;
+        /* Aumentar el ancho de cada flor en pantallas medianas */
+        margin: 10px;
+        /* Espaciado entre flores */
+    }
+
+    .titulo {
+        font-size: 2.5em;
+        /* Reducir el tamaño de fuente */
+        padding: 20px;
+        /* Ajustar el padding */
+    }
+
+    /* Distribuir plantas en diferentes posiciones */
+    .planta:nth-child(1) {
+        left: 10%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(2) {
+        left: 25%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(3) {
+        left: 40%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(4) {
+        left: 55%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(5) {
+        left: 70%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(6) {
+        left: 85%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(7) {
+        display: none;
+    }
+
+    .planta:nth-child(8) {
+        display: none;
+    }
+
+    .planta:nth-child(9) {
+        display: none;
+    }
+
+    .planta:nth-child(10) {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .flower-container {
+        width: 45%;
+        /* Aumentar el ancho en pantallas más pequeñas */
+    }
+
+    .titulo {
+        font-size: 2em;
+        /* Reducir más el tamaño de fuente */
+        margin: 20px;
+    }
+    
+    /* Distribuir plantas en diferentes posiciones */
+    .planta:nth-child(1) {
+        left: 20%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(2) {
+        left: 40%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(3) {
+        left: 60%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(4) {
+        left: 80%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(5) {
+        display: none;
+    }
+
+    .planta:nth-child(6) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .flower-container {
+        width: 100%;
+        /* Las flores ocupan el ancho completo */
+        margin-top: -30px;
+    }
+
+    .titulo {
+        font-size: 1.5em;
+        /* Tamaño de fuente más pequeño */
+        padding: 15px;
+        /* Ajustar el padding */
+        margin-bottom: 80px;
+    }
+
+    .name {
+        font-size: 40px;
+        /* Tamaño de fuente para nombres más pequeño */
+    }
+
+    /* Distribuir plantas en diferentes posiciones */
+    .planta:nth-child(1) {
+        left: 18%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(2) {
+        left: 48%;
+        /* Ajusta la posición horizontal */
+    }
+
+    .planta:nth-child(3) {
+        left: 78%;
+    }
+
+    .planta:nth-child(4) {
+        display: none;
+    }
+}
